@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Data Use, Access & Retrieval — CLNIQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:      #0A8F8C;
+      --primary-light:#0FA3A0;
+      --bg-soft:      #F4FBFB;
+      --text-dark:    #0F172A;
+      --text-muted:   #64748B;
+      --white:        #FFFFFF;
+      --border:       #D1EAE9;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 72px;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+    .nav-logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 100;
+      color: var(--foreground);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .btn-nav {
+      background: var(--primary);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-weight: 600 !important;
+      font-size: 14px !important;
+      transition: background 0.2s !important;
+    }
+    .btn-nav:hover { background: var(--primary-light) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      background: radial-gradient(circle, #ffffff 0%, #f3fbfb 100%);
+      padding: 80px 2rem 64px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-label {
+      display: inline-block;
+      background: var(--bg-soft);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero p {
+      color: var(--text-muted);
+      font-size: 17px;
+      max-width: 560px;
+      margin: 0 auto 0.75rem;
+    }
+    .hero-meta {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 0.5rem;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .content-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 80px 2rem 100px;
+    }
+
+    /* ── SECTION BLOCKS ── */
+    .section-block {
+      margin-bottom: 56px;
+    }
+    .section-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      background: var(--primary);
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 50%;
+    }
+    .section-block p {
+      color: var(--text-muted);
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+
+    /* ── BULLET LIST ── */
+    .policy-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 1rem;
+    }
+    .policy-list li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 15px;
+      color: var(--text-dark);
+    }
+    .policy-list li::before {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      min-width: 8px;
+      background: var(--primary);
+      border-radius: 50%;
+      margin-top: 7px;
+    }
+    .policy-list li strong {
+      color: var(--text-dark);
+    }
+    .policy-list li span {
+      color: var(--text-muted);
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 56px 0;
+    }
+
+    /* ── DATA LIFECYCLE TABLE ── */
+    .lifecycle-section {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 56px;
+    }
+    .lifecycle-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+    }
+    .lifecycle-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .lifecycle-table th {
+      background: var(--primary);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 12px 18px;
+      text-align: left;
+    }
+    .lifecycle-table th:first-child { border-radius: 8px 0 0 0; }
+    .lifecycle-table th:last-child  { border-radius: 0 8px 0 0; }
+    .lifecycle-table td {
+      padding: 14px 18px;
+      font-size: 14px;
+      color: var(--text-dark);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .lifecycle-table tr:last-child td { border-bottom: none; }
+    .lifecycle-table tr:nth-child(even) td { background: rgba(10,143,140,0.04); }
+    .stage-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 13px;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    /* ── TRANSPARENCY NOTE ── */
+    .transparency-card {
+      background: linear-gradient(135deg, #0A8F8C 0%, #0FA3A0 100%);
+      border-radius: 16px;
+      padding: 36px 40px;
+      color: white;
+      margin-bottom: 56px;
+    }
+    .transparency-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .transparency-card p {
+      font-size: 15px;
+      opacity: 0.9;
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: var(--bg-soft);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      padding: 80px 2rem;
+    }
+    .cta-band h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-band p {
+      color: var(--text-muted);
+      font-size: 16px;
+      margin-bottom: 2rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--primary-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text-dark);
+      color: rgba(255,255,255,0.6);
+      padding: 60px 2rem 32px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .footer-tagline { font-size: 14px; line-height: 1.6; }
+    .footer-col h4 {
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+      .content-wrap { padding: 56px 1.25rem 80px; }
+      .lifecycle-section { padding: 24px 20px; }
+      .transparency-card { padding: 28px 24px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .lifecycle-table th, .lifecycle-table td { padding: 10px 12px; font-size: 13px; }
+    }
+    @media (max-width: 480px) {
+      .footer-inner { grid-template-columns: 1fr; }
+      .cta-band { padding: 60px 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">CLNIQ.</a>
+    <ul class="nav-links">
+      <li><a href="#features">Platform Benefits</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="https://app.clniq.com">Sign In</a></li>
+      <li><a href="https://app.clniq.com" class="btn-nav">Get Started</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-label">Legal &amp; Policy</span>
+    <h1>Terms of Data Use, Access &amp; Retrieval</h1>
+    <p>How CLNIQ handles your clinical data — with clarity, compliance, and full transparency.</p>
+    <p class="hero-meta">Version 0.1 &nbsp;·&nbsp; Effective upon onboarding &nbsp;·&nbsp; Governed under DPDP Act 2023 &amp; NMC Guidelines</p>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="content-wrap">
+
+    <!-- 1. Ownership -->
+    <div class="section-block">
+      <h2><span class="section-num">1</span>Ownership of Data</h2>
+      <p>CLNIQ operates on a <strong>"Zero-Ownership"</strong> policy regarding clinical information. Data ownership is clearly defined across three categories:</p>
+      <ul class="policy-list">
+        <li><div><strong>Clinical Data</strong><br/><span>All medical records, prescriptions, and diagnostic reports belong to the <strong>Patient</strong>, managed by the <strong>Physician</strong>.</span></div></li>
+        <li><div><strong>Administrative Data</strong><br/><span>Clinic-specific scheduling and billing data belong to the <strong>Physician / Clinic</strong>.</span></div></li>
+        <li><div><strong>Platform Data</strong><br/><span>CLNIQ owns the software architecture, anonymized system-wide performance metrics, and the platform's user interface.</span></div></li>
+      </ul>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- 2. Permitted Use -->
+    <div class="section-block">
+      <h2><span class="section-num">2</span>Permitted Use of Data</h2>
+      <p>Data processed by CLNIQ is used strictly for the following purposes:</p>
+      <ul class="policy-list">
+        <li><div><strong>Direct Care</strong><br/><span>To enable the Physician to provide medical consultation and treatment.</span></div></li>
+        <li><div><strong>System Operations</strong><br/><span>To provide automated appointment reminders, billing generation, and technical support.</span></div></li>
+        <li><div><strong>Legal Compliance</strong><br/><span>To maintain records for the mandatory <strong>3-year period</strong> as required by the NMC.</span></div></li>
+        <li><div><strong>Prohibited Use</strong><br/><span>CLNIQ will <strong>never</strong> use personal health data for third-party marketing, profiling, or sale to insurance companies without explicit, separate consent.</span></div></li>
+      </ul>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- 3. Data Access -->
+    <div class="section-block">
+      <h2><span class="section-num">3</span>Data Access — Who Can See What?</h2>
+      <p>Access is governed by the principle of <strong>"Least Privilege"</strong> — users only see what is necessary for their role.</p>
+      <ul class="policy-list">
+        <li><div><strong>Physicians &amp; Staff</strong><br/><span>Access is granted via Role-Based Access Control (RBAC). A billing clerk cannot see clinical notes, and a lab technician cannot see the physician's private summaries.</span></div></li>
+        <li><div><strong>Patients</strong><br/><span>Patients have the right to access their fully digital medical record through the Physician's assistance upon demand on the CLNIQ Patient Portal.</span></div></li>
+        <li><div><strong>CLNIQ Administrators</strong><br/><span>Our team has <strong>no access</strong> to decrypted clinical data. Technical access is limited to metadata (e.g., system logs) for troubleshooting purposes only.</span></div></li>
+      </ul>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- 4. Retrieval -->
+    <div class="section-block">
+      <h2><span class="section-num">4</span>Data Retrieval &amp; Portability</h2>
+      <p>We believe your data should be mobile. CLNIQ provides straightforward pathways for data retrieval — the <strong>"No Lock-In" Guarantee</strong>.</p>
+      <ul class="policy-list">
+        <li><div><strong>On-Demand Export</strong><br/><span>Physicians can export their clinic's data at any time in industry-standard formats including <strong>CSV, JSON, or PDF</strong>.</span></div></li>
+        <li><div><strong>Data Portability</strong><br/><span>Patients can request a digital copy of their records to be transferred to another healthcare provider or to their personal health locker (ABHA).</span></div></li>
+        <li><div><strong>Retrieval After Termination</strong><br/><span>If a Physician ends their subscription, CLNIQ provides a <strong>30-day grace period</strong> during which all clinical data can be retrieved before the account transitions to "Cold Storage" or is deleted.</span></div></li>
+      </ul>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- 5. Deletion -->
+    <div class="section-block">
+      <h2><span class="section-num">5</span>Data Deletion — Right to be Forgotten</h2>
+      <ul class="policy-list">
+        <li><div><strong>Patient Requests</strong><br/><span>A patient may request the deletion of their data. However, CLNIQ and the Physician must balance this against the <strong>NMC's 3-year mandatory retention rule</strong> for medical records.</span></div></li>
+        <li><div><strong>Permanent Erasure</strong><br/><span>Once the legal retention period expires or the purpose of processing is complete, CLNIQ uses industry-standard <strong>"Digital Shredding"</strong> to ensure the data cannot be recovered from Microsoft Azure storage.</span></div></li>
+      </ul>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- DATA LIFECYCLE TABLE -->
+    <div class="lifecycle-section">
+      <h2>Data Lifecycle Summary</h2>
+      <div style="overflow-x:auto;">
+        <table class="lifecycle-table">
+          <thead>
+            <tr>
+              <th>Stage</th>
+              <th>Action</th>
+              <th>Responsibility</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="stage-badge">Collection</span></td>
+              <td>Patient provides info to Physician via CLNIQ.</td>
+              <td>Physician <em>(Data Fiduciary)</em></td>
+            </tr>
+            <tr>
+              <td><span class="stage-badge">Storage</span></td>
+              <td>Encrypted data sits on Azure India servers.</td>
+              <td>CLNIQ <em>(Data Processor)</em></td>
+            </tr>
+            <tr>
+              <td><span class="stage-badge">Access</span></td>
+              <td>Physician views record to provide care.</td>
+              <td>Physician <em>(via RBAC)</em></td>
+            </tr>
+            <tr>
+              <td><span class="stage-badge">Retrieval</span></td>
+              <td>Clinic exports data for backup or migration.</td>
+              <td>CLNIQ <em>(Self-service tools)</em></td>
+            </tr>
+            <tr>
+              <td><span class="stage-badge">Deletion</span></td>
+              <td>Data is erased after the 3-year legal limit.</td>
+              <td>CLNIQ <em>(Automatic / Manual)</em></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TRANSPARENCY NOTE -->
+    <div class="transparency-card">
+      <h3>Transparency Note</h3>
+      <p>CLNIQ maintains an <strong>"Audit Trail"</strong> of every instance where data is accessed or retrieved. Both the Physician and the Patient can request an <strong>Access Log</strong> to see who viewed their records and when.</p>
+    </div>
+
+  </main>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <h2>Your data, your rules. Always.</h2>
+    <p>Start with CLNIQ and experience a clinic management platform built on trust, compliance, and clinical clarity.</p>
+    <a href="https://app.clniq.com" class="btn-primary">Get Started Now</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <span class="footer-logo">CLNIQ.</span>
+        <p class="footer-tagline">Empowering doctors to reach more patients with precision, speed, and total clinical clarity.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">Enterprise</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Data Protection</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2024 CLNIQ. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
