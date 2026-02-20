@@ -11,11 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Azure Login
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
       - name: Upload to Azure Blob Storage
         uses: azure/CLI@v1
         with:
@@ -24,4 +19,7 @@ jobs:
               --account-name clniqstg \
               --destination '$web' \
               --source './' \
-              --overwrite
+              --overwrite \
+              --connection-string "$AZURE_STORAGE_CONNECTION_STRING"
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
